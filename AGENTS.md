@@ -3,6 +3,7 @@
 Project: **Rooted**. Town: **Bluebird Bay** (never Hearthshore in new code, UI or asset paths).
 
 ## Start here
+- `docs/community-calendar.md` owns the public calendar and community requirements: 30-day seasons, 120-day years, optional romance/family, and persistent friendship behavior. Festival dates/names and numeric system rules remain proposals.
 - `docs/art-direction.md` is the approved visual direction and technical art acceptance checklist.
 - Use Godot 4.x 2D/GDScript for a proposed proof; **do not imply a runtime version has been tested** unless it has.
 - Keep all rendering fully 2D. Build depth by feet-based sorting, authored foreground masks and explicit elevation layers.
