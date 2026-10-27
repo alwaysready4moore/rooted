@@ -21,6 +21,14 @@ The first proposed art proof is a compact Bluebird Bay outdoor scene testing cha
 
 Rooted's priorities are community participation, manageable crop-focused farming, relationship building, and low-pressure progression. Core mechanics should serve those priorities.
 
+## Calendar and community direction (October 27, 2026)
+
+Rooted uses four **30-day seasons**, for a **120-day year**, without separate months. Friendship and community belonging support a complete experience; dating, marriage and children are optional. Residents have relationships of their own, and friendship should visibly change daily routines and reciprocal assistance.
+
+Seasonal celebrations include a Christmas-style winter gathering and Halloween-style festivities at the end of Autumn. Exact festival dates and names remain proposed.
+
+Read [the community and calendar specification](docs/community-calendar.md) for approved principles, open decisions and prototype scope.
+
 ## Working with Cursor
 
 Consult [AGENTS.md](AGENTS.md) for implementation guardrails and acceptance criteria. Prototype one slice and validate in the actual Godot editor before expanding the asset library or claiming gameplay is operational.
