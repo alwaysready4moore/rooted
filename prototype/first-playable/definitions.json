@@ -1,0 +1,395 @@
+{
+  "format_version": 1,
+  "content_version": "slice-0.1",
+  "status": "ASSUMED_FOR_PROTOTYPE",
+  "public_fixture": true,
+  "calendar": {
+    "days_per_season": 30,
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "week_days": 7,
+    "start_weekday": 0
+  },
+  "clock": {
+    "seconds_per_game_minute": 1,
+    "wake_minute": 360,
+    "cutoff_minute": 1320
+  },
+  "inventory": {
+    "slots": 12,
+    "stack_limit": 99
+  },
+  "farm": {
+    "plot_count": 6,
+    "can_capacity": 6,
+    "dry_growth": "pause",
+    "season_change": "retain_test_crops"
+  },
+  "economy": {
+    "job_wage": 6,
+    "shift_wage": 12
+  },
+  "standing": {
+    "initial": "newcomer",
+    "neighbor_distinct_categories": 2,
+    "categories": [
+      "job",
+      "supply",
+      "service"
+    ]
+  },
+  "items": [
+    {
+      "id": "mint",
+      "kind": "produce"
+    },
+    {
+      "id": "turnip",
+      "kind": "produce"
+    },
+    {
+      "id": "mint_seed",
+      "kind": "seed",
+      "price": 2
+    },
+    {
+      "id": "turnip_seed",
+      "kind": "seed",
+      "price": 3
+    }
+  ],
+  "crops": [
+    {
+      "id": "mint_crop",
+      "seed_id": "mint_seed",
+      "harvest_id": "mint",
+      "watered_nights": 2,
+      "yield": 1
+    },
+    {
+      "id": "turnip_crop",
+      "seed_id": "turnip_seed",
+      "harvest_id": "turnip",
+      "watered_nights": 3,
+      "yield": 1
+    }
+  ],
+  "locations": [
+    "farmhouse",
+    "farm",
+    "path",
+    "work_area",
+    "venue",
+    "home_exit"
+  ],
+  "npcs": [
+    {
+      "id": "resident_helper",
+      "schedule": [
+        {
+          "start": 360,
+          "end": 540,
+          "location": "path"
+        },
+        {
+          "start": 540,
+          "end": 720,
+          "location": "work_area"
+        },
+        {
+          "start": 720,
+          "end": 780,
+          "location": "venue"
+        },
+        {
+          "start": 780,
+          "end": 960,
+          "location": "work_area"
+        },
+        {
+          "start": 960,
+          "end": 1140,
+          "location": "path"
+        },
+        {
+          "start": 1140,
+          "end": 1320,
+          "location": "home_exit"
+        }
+      ]
+    },
+    {
+      "id": "resident_host",
+      "schedule": [
+        {
+          "start": 360,
+          "end": 540,
+          "location": "home_exit"
+        },
+        {
+          "start": 540,
+          "end": 600,
+          "location": "path"
+        },
+        {
+          "start": 600,
+          "end": 1200,
+          "location": "venue"
+        },
+        {
+          "start": 1200,
+          "end": 1320,
+          "location": "home_exit"
+        }
+      ]
+    },
+    {
+      "id": "resident_guest",
+      "schedule": [
+        {
+          "start": 360,
+          "end": 660,
+          "location": "path"
+        },
+        {
+          "start": 660,
+          "end": 900,
+          "location": "venue"
+        },
+        {
+          "start": 900,
+          "end": 1080,
+          "location": "path"
+        },
+        {
+          "start": 1080,
+          "end": 1200,
+          "location": "venue"
+        },
+        {
+          "start": 1200,
+          "end": 1320,
+          "location": "home_exit"
+        }
+      ]
+    }
+  ],
+  "schedule_overrides": [
+    {
+      "npc_id": "resident_helper",
+      "start": 960,
+      "end": 1140,
+      "location": "farm",
+      "requires_flags": [
+        "helper_visit_eligible"
+      ],
+      "unless_flags": [
+        "gate_repaired"
+      ],
+      "priority": 10
+    }
+  ],
+  "venue": {
+    "location": "venue",
+    "open": 600,
+    "close": 1200,
+    "shift_minutes": 120,
+    "shift_latest_start": 1080,
+    "orders": 3,
+    "contribution_item": "mint",
+    "contribution_quantity": 1,
+    "servings_per_contribution": 3,
+    "recipes": [
+      {
+        "id": "house_drink",
+        "steps": [
+          "base",
+          "cup",
+          "serve"
+        ]
+      },
+      {
+        "id": "herb_drink",
+        "steps": [
+          "base",
+          "cup",
+          "herb",
+          "serve"
+        ]
+      }
+    ]
+  },
+  "flags": [
+    "helper_chat",
+    "helper_job_done",
+    "helper_visit_eligible",
+    "gate_repaired",
+    "neighbor_invitation_available"
+  ],
+  "events": [
+    {
+      "id": "FP_CHAT_HELPER",
+      "kind": "chat",
+      "actor": "resident_helper",
+      "location": "any",
+      "window": [
+        360,
+        1320
+      ],
+      "duration": 0,
+      "depends_on": [],
+      "repeat": "daily_contact",
+      "effects": [
+        "record_contact",
+        "set_helper_chat"
+      ]
+    },
+    {
+      "id": "FP_JOB",
+      "kind": "job",
+      "actor": "resident_helper",
+      "location": "work_area",
+      "window": [
+        540,
+        720
+      ],
+      "duration": 30,
+      "depends_on": [],
+      "repeat": "once",
+      "effects": [
+        "pay_job",
+        "set_helper_job_done",
+        "add_job_category"
+      ]
+    },
+    {
+      "id": "FP_SUPPLY",
+      "kind": "supply",
+      "actor": "resident_host",
+      "location": "venue",
+      "window": [
+        600,
+        1200
+      ],
+      "duration": 0,
+      "depends_on": [],
+      "repeat": "transaction",
+      "effects": [
+        "take_mint",
+        "add_herb_stock",
+        "add_supply_category"
+      ]
+    },
+    {
+      "id": "FP_SHIFT",
+      "kind": "shift",
+      "actor": "resident_host",
+      "location": "venue",
+      "window": [
+        600,
+        1200
+      ],
+      "duration": 120,
+      "depends_on": [],
+      "repeat": "daily_completion",
+      "effects": [
+        "pay_shift",
+        "add_service_category"
+      ]
+    },
+    {
+      "id": "FP_VISIT_UNLOCK",
+      "kind": "derived",
+      "actor": "resident_helper",
+      "location": "any",
+      "window": [
+        360,
+        1320
+      ],
+      "duration": 0,
+      "depends_on": [
+        "FP_CHAT_HELPER",
+        "FP_JOB"
+      ],
+      "repeat": "once",
+      "effects": [
+        "set_helper_visit_eligible"
+      ]
+    },
+    {
+      "id": "FP_FAVOR",
+      "kind": "favor",
+      "actor": "resident_helper",
+      "location": "farm",
+      "window": [
+        960,
+        1140
+      ],
+      "duration": 15,
+      "depends_on": [
+        "FP_VISIT_UNLOCK"
+      ],
+      "repeat": "once",
+      "effects": [
+        "repair_gate"
+      ]
+    },
+    {
+      "id": "FP_LEISURE",
+      "kind": "invitation",
+      "actor": "resident_helper",
+      "location": "any",
+      "window": [
+        780,
+        1140
+      ],
+      "duration": 15,
+      "depends_on": [
+        "FP_CHAT_HELPER"
+      ],
+      "repeat": "daily_completion",
+      "effects": [
+        "record_contact"
+      ]
+    },
+    {
+      "id": "FP_NEIGHBOR",
+      "kind": "derived",
+      "actor": "resident_guest",
+      "location": "any",
+      "window": [
+        360,
+        1320
+      ],
+      "duration": 0,
+      "depends_on": [],
+      "repeat": "once",
+      "effects": [
+        "set_neighbor_invitation_available"
+      ],
+      "condition": "two_distinct_categories"
+    },
+    {
+      "id": "FP_SEAT",
+      "kind": "invitation",
+      "actor": "resident_guest",
+      "location": "venue",
+      "window": [
+        660,
+        900
+      ],
+      "duration": 15,
+      "depends_on": [
+        "FP_NEIGHBOR"
+      ],
+      "repeat": "daily_completion",
+      "effects": [
+        "record_contact"
+      ]
+    }
+  ]
+}
