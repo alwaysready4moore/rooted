@@ -3,6 +3,8 @@
 Project: **Rooted**. Town: **Bluebird Bay** (never Hearthshore in new code, UI or asset paths).
 
 ## Start here
+- For the gameplay slice read `docs/first-playable/README.md`, `data-contract.md`, `acceptance.md` and `cursor-handoff.md`. Defaults marked ASSUMED_FOR_PROTOTYPE are authorized for a reviewable implementation, not permanent lore. Run `python tools/validate_first_playable.py --self-test` when changing fixtures.
+- Creator workflow: build coherent reviewable increments, choose reversible technical defaults, and escalate meaningful canon conflicts rather than requesting approval for each variable. Code changes still require review; never claim runtime evidence from documentation tests.
 - `docs/community-calendar.md` owns the public calendar and community requirements: 30-day seasons, 120-day years, optional romance/family, and persistent friendship behavior. Festival dates/names and numeric system rules remain proposals.
 - `docs/art-direction.md` is the approved visual direction and technical art acceptance checklist.
 - Use Godot 4.x 2D/GDScript for a proposed proof; **do not imply a runtime version has been tested** unless it has.

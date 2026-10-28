@@ -29,6 +29,10 @@ Seasonal celebrations include a Christmas-style winter gathering and Halloween-s
 
 Read [the community and calendar specification](docs/community-calendar.md) for approved principles, open decisions and prototype scope.
 
+## First playable review package
+
+The [first-playable framework](docs/first-playable/README.md) supplies system contracts, a prepared test day, synthetic data fixtures, 32 runtime acceptance checks, and a dependency-ordered Cursor backlog. New tuning values are provisional. The fixture validator passes; a playable Godot build has **not** been created or engine-tested.
+
 ## Working with Cursor
 
 Consult [AGENTS.md](AGENTS.md) for implementation guardrails and acceptance criteria. Prototype one slice and validate in the actual Godot editor before expanding the asset library or claiming gameplay is operational.

@@ -1,0 +1,132 @@
+{
+  "save_version": 1,
+  "content_version": "slice-0.1",
+  "fixture_id": "prepared-community-day",
+  "clock": {
+    "absolute_day": 7,
+    "minute_of_day": 360,
+    "subminute": 0
+  },
+  "player": {
+    "scene": "farmhouse",
+    "position": [
+      160,
+      160
+    ],
+    "coins": 20
+  },
+  "inventory": [
+    {
+      "item_id": "mint_seed",
+      "quantity": 1
+    },
+    {
+      "item_id": "turnip_seed",
+      "quantity": 2
+    }
+  ],
+  "farm": {
+    "can_charges": 6,
+    "plots": [
+      {
+        "id": "p0",
+        "tilled": true,
+        "crop_id": "mint_crop",
+        "growth": 2,
+        "watered": false
+      },
+      {
+        "id": "p1",
+        "tilled": true,
+        "crop_id": "turnip_crop",
+        "growth": 1,
+        "watered": false
+      },
+      {
+        "id": "p2",
+        "tilled": true,
+        "crop_id": "turnip_crop",
+        "growth": 0,
+        "watered": false
+      },
+      {
+        "id": "p3",
+        "tilled": true,
+        "crop_id": "mint_crop",
+        "growth": 0,
+        "watered": false
+      },
+      {
+        "id": "p4",
+        "tilled": true,
+        "crop_id": null,
+        "growth": 0,
+        "watered": false
+      },
+      {
+        "id": "p5",
+        "tilled": false,
+        "crop_id": null,
+        "growth": 0,
+        "watered": false
+      }
+    ],
+    "last_processed_day": 6
+  },
+  "npcs": {
+    "resident_helper": {
+      "anchor": "path",
+      "destination": "path"
+    },
+    "resident_host": {
+      "anchor": "home_exit",
+      "destination": "home_exit"
+    },
+    "resident_guest": {
+      "anchor": "path",
+      "destination": "path"
+    }
+  },
+  "relationships": {
+    "resident_helper": {
+      "met": true,
+      "contact_days": [],
+      "evidence": [
+        "fixture_prior_visit"
+      ],
+      "romance": "none"
+    },
+    "resident_host": {
+      "met": true,
+      "contact_days": [],
+      "evidence": [],
+      "romance": "none"
+    },
+    "resident_guest": {
+      "met": true,
+      "contact_days": [],
+      "evidence": [],
+      "romance": "none"
+    }
+  },
+  "pair_relationships": {},
+  "flags": {
+    "helper_chat": false,
+    "helper_job_done": false,
+    "helper_visit_eligible": false,
+    "gate_repaired": false,
+    "neighbor_invitation_available": false
+  },
+  "community": {
+    "categories": [],
+    "stage": "newcomer"
+  },
+  "venue": {
+    "herb_stock": 0
+  },
+  "completed_events": [],
+  "transactions": [],
+  "daily_records": {},
+  "visits": [],
+  "active_activity": null
+}
