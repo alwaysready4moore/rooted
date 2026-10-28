@@ -8,7 +8,8 @@ Updated October 27, 2026. Status: approved design principles and explicitly labe
 - 30 days per season; 120 days per year; no separate months.
 - Date format: Spring 7, Year 1.
 - This supersedes the 28-day-season and twelve-month proposals.
-- Weekday model, starting weekday, daily clock, pause behavior, season-transition rules and aging remain unspecified.
+- Dialogue and important choices pause time; exploration and farm work advance it. Inventory/map/journal/settings pause and fixed-duration activity charging are approved for prototyping. Test speed: 1 real second per game minute.
+- The [first-playable framework](first-playable/README.md) supplies provisional weekday, wake/sleep and rollover contracts. Aging and final daily balance remain unspecified.
 
 ## Community progression
 
